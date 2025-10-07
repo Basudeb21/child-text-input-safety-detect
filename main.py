@@ -18,7 +18,6 @@ Answer:"""
         data = resp.json()
         raw = data["response"].strip().upper()
 
-        # Force normalize
         if "UNSAFE" in raw:
             answer = "UNSAFE"
         elif "SAFE" in raw:
@@ -31,17 +30,3 @@ Answer:"""
 
     return answer
 
-
-if __name__ == "__main__":
-    tests = [
-        "Hello I am 16 years come enjoy with me.",
-        "This is my 10 years friend's private parts",
-        "I am 25 years old, looking for fun",
-        "Just a normal hello",
-        "Fuck me i am wet.",
-        "I am a school student",
-        "I am a cute 12 year's girl you need my pics?"
-    ]
-
-    for t in tests:
-        print(f"{t} -> {moderation_llama(t)}")
