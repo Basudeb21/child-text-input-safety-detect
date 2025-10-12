@@ -1,4 +1,5 @@
 import requests
+import sys
 
 def moderation_llama(text: str) -> str:
     prompt = f"""
@@ -30,3 +31,12 @@ Answer:"""
 
     return answer
 
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py '<text>'")
+        sys.exit(1)
+
+    input_text = sys.argv[1]
+    result = moderation_llama(input_text)
+    print(f"Input: {input_text}\nResult: {result}")
